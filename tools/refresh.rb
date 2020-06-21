@@ -30,10 +30,9 @@ def refresh_one_file(template_file, input_file, output_file, level)
     is_main = true
   end
   
-  if ["smartideo", "wp-video"].include?(node.first_element_child['class'])
-    #puts "Removed smartvideo <div>"
-    node.first_element_child.remove
-  end
+  # if node.first_element_child && ["smartideo", "wp-video"].include?(node.first_element_child['class'])
+  #   node.first_element_child.remove
+  # end
 
   #result = template.sub('<article />', node.to_s.gsub('"../', '"'))
   result = template.sub('<article />', node.to_s)

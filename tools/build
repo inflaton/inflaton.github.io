@@ -7,3 +7,4 @@ ruby refresh_all.rb templates/template.html ../mclhs/
 ruby refresh_all.rb templates/template.html ../cysc/
 ruby refresh_all.rb templates/template.html ../cyyg/
 ruby refresh_all.rb templates/template.html ../fjyg/
+ruby refresh_all.rb templates/template.html ../fjsp/

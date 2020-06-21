@@ -9,8 +9,14 @@ def refresh_all(template_file, input_dir)
     if !File.directory? file_name
       unless file_name.include?("/tools/")
         level = file_name.count('/') - input_dir.count('/') + 1
-        refresh_one_file(template_file, file_name, file_name, level)
-      end
+        begin  
+          puts "Processing #{file_name} ..."
+          refresh_one_file(template_file, file_name, file_name, level)
+        rescue StandardError => msg  
+          # display the system generated error message  
+          puts msg  
+        end  
+          end
     end
   end
 end
