@@ -1,10 +1,4 @@
 #!/bin/bash
 cd `dirname $0`
 pwd
-ruby refresh.rb templates/template.html ../index.html
-ruby refresh_all.rb templates/template.html ../rpsxl/
-ruby refresh_all.rb templates/template.html ../mclhs/
-ruby refresh_all.rb templates/template.html ../cysc/
-ruby refresh_all.rb templates/template.html ../cyyg/
-ruby refresh_all.rb templates/template.html ../fjyg/
-ruby refresh_all.rb templates/template.html ../fjsp/
+ruby refresh_all.rb templates/template.html ../

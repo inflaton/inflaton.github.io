@@ -34,10 +34,13 @@ def refresh_one_file(template_file, input_file, output_file, level)
   #   node.first_element_child.remove
   # end
 
-  #result = template.sub('<article />', node.to_s.gsub('"../', '"'))
   result = template.sub('<article />', node.to_s)
   result = result.gsub('title_to_be_replaced', doc.title)
-
+  result = result.gsub('../../../download.xuefovip.com/', '../download/')
+  result = result.gsub('../../../www.xuefovip.com/', '../www/')
+  result = result.gsub('../../wp-content/uploads/', '../rxl/wp-content/uploads/')
+  result = result.gsub('../../../img1.gtimg.com/', 'http://img1.gtimg.com/')
+  
   if is_main
     result = result.gsub('<main class="postList mdui-center hello" id="postlist">', '<article class="post-773291 post type-post status-publish format-standard has-post-thumbnail hentry category-2  mdui-typo" id="post-773291" itemprop="articleBody">')
     result = result.gsub('</main>', '</article>')
