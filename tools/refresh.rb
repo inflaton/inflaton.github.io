@@ -41,8 +41,8 @@ def refresh_one_file(template_file, input_file, output_file, level)
   result = result.gsub('../../wp-content/uploads/', '../rxl/wp-content/uploads/')
   result = result.gsub('../../../img1.gtimg.com/', 'http://img1.gtimg.com/')
   result = result.gsub('../download/mp4/', '../shared/mp4/')
+  result = result.gsub('../../../download.xuefovip.com/mp4/', '../shared/mp4/')
   result = result.gsub('http://download.xuefovip.com/mp4/', 'http://inflaton.github.io/shared/mp4/')
-  result = result.gsub('/fjsp/mp4/', '/shared/mp4/')
     
   if is_main
     result = result.gsub('<main class="postList mdui-center hello" id="postlist">', '<article class="post-773291 post type-post status-publish format-standard has-post-thumbnail hentry category-2  mdui-typo" id="post-773291" itemprop="articleBody">')
