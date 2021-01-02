@@ -49,8 +49,7 @@ def refresh_one_file(template_file, input_file, output_file, level)
     result = result.gsub('</main>', '</article>')
   end
 
-  pretty_html = Nokogiri::HTML(result).to_xhtml(indent: 4)
-  File.open(output_file, 'w') { |file| file.write(pretty_html) } 
+  File.open(output_file, 'w') { |file| file.write(result) } 
   puts "Done for #{doc.title} - #{output_file}"
 end
 
