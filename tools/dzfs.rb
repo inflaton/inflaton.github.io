@@ -30,7 +30,7 @@ def process_one_file(template_file1, template_file2, input_dir, output_dir, inde
                 submodule_title = r[1]
                 youtube_url = r[2]
 
-                submodule_title += "(未找到视频)" if !youtube_url
+                submodule_title += "(未找到視頻)" if !youtube_url
                 youtube_url = "" if !youtube_url
 
                 puts "#{index},#{class_title},#{submodule_id},#{submodule_title},#{youtube_url}"
