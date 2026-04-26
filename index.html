@@ -8,23 +8,31 @@
     <meta name="description" content="Donghao Huang - VP R&D at Mastercard, Doctor of Engineering candidate in Generative AI, researcher in LLMs, RAG, Edge AI, and multi-agent systems.">
     <meta name="keywords" content="Donghao Huang, AI, GenAI, LLM, Mastercard, NLP, Sentiment Analysis, Edge AI, Multi-Agent Systems">
     <link rel="icon" href="./shared/images/logo-32x32.png" sizes="32x32">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a365d;
-            --primary-light: #2a4a7f;
-            --accent: #2b6cb0;
-            --accent-light: #3182ce;
-            --bg: #f7fafc;
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #2563eb;
+            --accent-light: #3b82f6;
+            --accent-glow: #60a5fa;
+            --gold: #fbbf24;
+            --bg: #f8fafc;
             --card-bg: #ffffff;
-            --text: #2d3748;
-            --text-light: #718096;
+            --text: #1e293b;
+            --text-light: #64748b;
             --border: #e2e8f0;
-            --highlight: #ebf8ff;
-            --section-gap: 2.5rem;
+            --highlight: #eff6ff;
+            --section-gap: 3rem;
+            --shadow-sm: 0 1px 2px rgba(15,23,42,0.06);
+            --shadow-md: 0 4px 12px rgba(15,23,42,0.08);
+            --shadow-lg: 0 12px 32px rgba(15,23,42,0.12);
+            --shadow-glow: 0 0 40px rgba(96,165,250,0.25);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -36,71 +44,283 @@
 
         /* Hero */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--accent) 100%);
+            position: relative;
+            background:
+                radial-gradient(ellipse at 20% 0%, rgba(59,130,246,0.35) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(139,92,246,0.30) 0%, transparent 50%),
+                linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1e3a8a 100%);
             color: #fff;
-            padding: 3.5rem 1.5rem 3rem;
+            padding: 4.5rem 1.5rem 4rem;
             text-align: center;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+            background-size: 24px 24px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .hero-inner {
+            position: relative;
+            max-width: 880px;
+            margin: 0 auto;
+            z-index: 1;
+        }
+        .hero .avatar-wrap {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.2rem;
+        }
+        .hero .avatar-wrap::after {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, var(--accent-glow), var(--gold), var(--accent-glow));
+            z-index: -1;
+            filter: blur(12px);
+            opacity: 0.55;
+            animation: spin 8s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .hero .avatar {
+            width: 132px;
+            height: 132px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 3px solid rgba(255,255,255,0.85);
+            display: block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+        }
+        .hero .badge-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .hero .badge-tag .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #4ade80;
+            box-shadow: 0 0 8px #4ade80;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
         }
         .hero h1 {
             font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 2.6rem;
+            font-size: 3rem;
             font-weight: 700;
-            letter-spacing: 0.02em;
-            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.6rem;
+            line-height: 1.15;
+            background: linear-gradient(180deg, #fff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .hero .subtitle {
-            font-size: 1.1rem;
+        .hero .role-line {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #e2e8f0;
+            margin-bottom: 0.4rem;
+        }
+        .hero .role-line .accent {
+            color: var(--accent-glow);
+            font-weight: 600;
+        }
+        .hero .summary {
+            font-size: 1.02rem;
             font-weight: 300;
-            opacity: 0.92;
-            margin-bottom: 0.8rem;
+            color: rgba(255,255,255,0.82);
+            max-width: 680px;
+            margin: 1rem auto 1.6rem;
+            line-height: 1.65;
         }
+
+        /* Hero stats */
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 1.4rem auto 1.8rem;
+            max-width: 720px;
+        }
+        .hero-stat {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 0.7rem 1.1rem;
+            border-radius: 12px;
+            min-width: 110px;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .hero-stat:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.12);
+        }
+        .hero-stat .num {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+        }
+        .hero-stat .num .plus { color: var(--accent-glow); font-weight: 600; }
+        .hero-stat .label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.3rem;
+        }
+
+        /* CTA buttons */
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.7rem;
+            margin-bottom: 1.6rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.3rem;
+            border-radius: 10px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(37,99,235,0.45);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(37,99,235,0.55);
+            filter: brightness(1.08);
+        }
+        .btn-ghost {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #fff;
+            border-color: rgba(255,255,255,0.25);
+        }
+        .btn-ghost:hover {
+            background: rgba(255,255,255,0.16);
+            border-color: rgba(255,255,255,0.45);
+            transform: translateY(-2px);
+        }
+        .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
         .hero .contact-row {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 0.6rem 1.5rem;
-            font-size: 0.92rem;
-            opacity: 0.88;
+            align-items: center;
+            gap: 0.5rem 1.4rem;
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.7);
         }
-        .hero .contact-row a { color: #bee3f8; text-decoration: none; }
-        .hero .contact-row a:hover { color: #fff; text-decoration: underline; }
-        .hero .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center top;
-            border: 3px solid rgba(255,255,255,0.6);
-            margin-bottom: 1rem;
-        }
+        .hero .contact-row .sep { opacity: 0.4; }
+        .hero .contact-row a { color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; }
+        .hero .contact-row a:hover { color: #fff; }
 
         /* Nav */
         .nav-bar {
-            background: var(--card-bg);
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: saturate(180%) blur(14px);
+            -webkit-backdrop-filter: saturate(180%) blur(14px);
             border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            box-shadow: var(--shadow-sm);
         }
         .nav-bar nav {
-            max-width: 960px;
+            max-width: 1040px;
             margin: 0 auto;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 0;
-            padding-right: 120px;
+            padding-right: 240px;
         }
         .nav-bar a {
-            padding: 0.75rem 1.1rem;
+            padding: 0.85rem 1rem;
             color: var(--text);
             text-decoration: none;
             font-size: 0.88rem;
             font-weight: 500;
             transition: color 0.2s, background 0.2s;
+            position: relative;
         }
-        .nav-bar a:hover { color: var(--accent); background: var(--highlight); }
+        .nav-bar a:hover { color: var(--accent); }
+        .nav-bar a:not(.lang-current):not(.nav-cv)::after {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            right: 1rem;
+            bottom: 0.5rem;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.2s ease;
+        }
+        .nav-bar a:not(.lang-current):not(.nav-cv):hover::after { transform: scaleX(1); }
+        .nav-cv {
+            position: absolute;
+            right: 8.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            color: #fff !important;
+            padding: 0.45rem 0.9rem !important;
+            border-radius: 8px;
+            font-size: 0.82rem !important;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+        }
+        .nav-cv:hover {
+            transform: translateY(-50%) translateY(-1px);
+            box-shadow: 0 6px 16px rgba(37,99,235,0.4);
+            color: #fff !important;
+        }
+        .nav-cv svg { width: 14px; height: 14px; }
 
         /* Main content */
         .container {
@@ -114,17 +334,26 @@
         section + section { border-top: 1px solid var(--border); }
         .section-title {
             font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 1.5rem;
+            font-size: 1.7rem;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 1.2rem;
-            padding-bottom: 0.4rem;
-            border-bottom: 2px solid var(--accent);
+            margin-bottom: 1.4rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            position: relative;
+        }
+        .section-title::before {
+            content: '';
             display: inline-block;
+            width: 6px;
+            height: 28px;
+            background: linear-gradient(180deg, var(--accent-light), var(--accent));
+            border-radius: 3px;
         }
 
         /* About */
-        .about p { font-size: 1rem; color: var(--text); }
+        .about p { font-size: 1.02rem; color: var(--text); }
 
         /* Education & Experience entries */
         .entry { margin-bottom: 1.5rem; }
@@ -145,6 +374,140 @@
             color: var(--text);
         }
         .entry-details li { margin-bottom: 0.25rem; }
+
+        /* Timeline (Experience) */
+        .timeline {
+            position: relative;
+            padding: 1rem 0 0.5rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 18px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--accent-light) 50%, var(--border) 100%);
+            border-radius: 2px;
+        }
+        .tl-item {
+            position: relative;
+            padding-left: 56px;
+            margin-bottom: 1.8rem;
+        }
+        .tl-item:last-child { margin-bottom: 0.5rem; }
+        .tl-dot {
+            position: absolute;
+            left: 8px;
+            top: 1.4rem;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 0 4px rgba(37,99,235,0.12);
+            z-index: 1;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .tl-item.current .tl-dot {
+            background: var(--accent);
+            box-shadow: 0 0 0 4px rgba(37,99,235,0.18), 0 0 16px rgba(37,99,235,0.5);
+        }
+        .tl-item.current .tl-dot::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-glow);
+            animation: ping 2s ease-out infinite;
+        }
+        @keyframes ping {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+        .tl-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem 1.4rem;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+        .tl-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-light);
+        }
+        .tl-card:hover + .tl-meta .tl-dot,
+        .tl-item:hover .tl-dot {
+            transform: scale(1.15);
+        }
+        .tl-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .tl-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--accent);
+            background: var(--highlight);
+            padding: 0.2rem 0.65rem;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+        .tl-current-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #166534;
+            background: #dcfce7;
+            padding: 0.18rem 0.55rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .tl-current-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 6px #22c55e;
+        }
+        .tl-role {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+            line-height: 1.35;
+        }
+        .tl-company {
+            font-size: 0.95rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.15rem;
+        }
+        .tl-location {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 0.7rem;
+        }
+        .tl-card ul {
+            margin-top: 0.6rem;
+            padding-left: 1.1rem;
+            font-size: 0.92rem;
+            color: var(--text);
+        }
+        .tl-card ul li { margin-bottom: 0.3rem; }
+        .tl-card ul li::marker { color: var(--accent-light); }
 
         /* Skills */
         .skills-grid {
@@ -247,12 +610,30 @@
         .lang-switcher .lang-sep { color: var(--border); padding: 0 0.1rem; }
 
         /* Responsive */
+        @media (max-width: 768px) {
+            .nav-bar nav { padding-right: 0; padding-bottom: 3.5rem; }
+            .nav-cv {
+                position: static;
+                transform: none;
+                margin: 0.5rem auto;
+                display: flex;
+                width: fit-content;
+            }
+            .nav-cv:hover { transform: translateY(-1px); }
+        }
         @media (max-width: 640px) {
-            .hero h1 { font-size: 2rem; }
+            .hero { padding: 3rem 1.2rem 2.5rem; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero .role-line { font-size: 1rem; }
+            .hero .summary { font-size: 0.95rem; }
+            .hero-stat { min-width: 90px; padding: 0.55rem 0.8rem; }
+            .hero-stat .num { font-size: 1.3rem; }
+            .hero-stat .label { font-size: 0.68rem; }
+            .btn { padding: 0.6rem 1rem; font-size: 0.85rem; }
+            .section-title { font-size: 1.45rem; }
             .skills-grid { grid-template-columns: 1fr; }
             .skill-label { margin-top: 0.4rem; }
             .entry-header { flex-direction: column; }
-            .nav-bar nav { padding-right: 0; }
             .lang-switcher {
                 position: static;
                 transform: none;
@@ -260,6 +641,10 @@
                 padding: 0.3rem 0;
                 border-top: 1px solid var(--border);
             }
+            .timeline::before { left: 12px; }
+            .tl-item { padding-left: 42px; }
+            .tl-dot { left: 2px; width: 18px; height: 18px; }
+            .tl-card { padding: 1rem 1.1rem; }
         }
     </style>
 </head>
@@ -267,16 +652,67 @@
 
 <!-- Hero -->
 <header class="hero">
-    <img src="./shared/images/Donghao.jpg" alt="Donghao Huang" class="avatar">
-    <h1>Donghao Huang</h1>
-    <p class="subtitle">VP, R&amp;D / Global Emerging Technology Lead &mdash; Mastercard</p>
-    <p class="subtitle" style="font-size:0.95rem; opacity:0.88; margin-top:0.2rem;">Patents: 10 granted, 50+ pending &nbsp;|&nbsp; 26 peer-reviewed publications</p>
-    <div class="contact-row">
-        <span>Arlington, VA, USA</span>
-        <a href="mailto:donghao.huang@gmail.com">donghao.huang@gmail.com</a>
-        <a href="https://www.linkedin.com/in/donghao-huang/" target="_blank" rel="noopener">LinkedIn</a>
-<a href="https://scholar.google.com/citations?user=w5B7yloAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
-        <a href="https://github.com/inflaton" target="_blank" rel="noopener">GitHub</a>
+    <div class="hero-inner">
+        <span class="badge-tag"><span class="dot"></span>Available for collaboration &amp; speaking</span>
+        <div class="avatar-wrap">
+            <img src="./shared/images/Donghao.jpg" alt="Donghao Huang" class="avatar">
+        </div>
+        <h1>Donghao Huang</h1>
+        <p class="role-line"><span class="accent">VP, R&amp;D</span> &middot; Global Emerging Technology Lead at Mastercard</p>
+        <p class="summary">
+            Technology executive with <strong>26+ years</strong> of experience driving innovation at the
+            intersection of <strong>AI/ML, Generative AI, Web3, and payments</strong>. Currently leading
+            global R&amp;D for Mastercard EmTech while pursuing a Doctor of Engineering in Generative AI
+            at Singapore Management University.
+        </p>
+
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="num">26<span class="plus">+</span></div>
+                <div class="label">Years in tech</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">10</div>
+                <div class="label">Patents granted</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">50<span class="plus">+</span></div>
+                <div class="label">Patents pending</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">26</div>
+                <div class="label">Publications</div>
+            </div>
+        </div>
+
+        <div class="hero-cta">
+            <a class="btn btn-primary" href="./Donghao_Huang_CV.pdf" download>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download CV
+            </a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/donghao-huang/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+                LinkedIn
+            </a>
+            <a class="btn btn-ghost" href="https://github.com/inflaton" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+                GitHub
+            </a>
+            <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=w5B7yloAAAAJ" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+                Scholar
+            </a>
+            <a class="btn btn-ghost" href="mailto:donghao.huang@gmail.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Email
+            </a>
+        </div>
+
+        <div class="contact-row">
+            <span>Arlington, VA, USA</span>
+            <span class="sep">&bull;</span>
+            <a href="mailto:donghao.huang@gmail.com">donghao.huang@gmail.com</a>
+        </div>
     </div>
 </header>
 
@@ -291,6 +727,10 @@
         <a href="#publications">Publications</a>
         <a href="#volunteering">Volunteering</a>
         <a href="#hobbies">Hobby Websites</a>
+        <a class="nav-cv" href="./Donghao_Huang_CV.pdf" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
+        </a>
     </nav>
     <div class="lang-switcher">
         <a href="index.html" class="lang-current">EN</a>
@@ -366,73 +806,96 @@
 
 <!-- Experience -->
 <section id="experience">
-    <h2 class="section-title">Professional Experience</h2>
+    <h2 class="section-title">Career Timeline</h2>
 
-    <div class="entry">
-        <div class="entry-header">
-            <span class="entry-title">VP, R&amp;D / Global EmTech Lead &mdash; Mastercard (U.S.)</span>
-            <span class="entry-date">Aug 2025 &ndash; Present</span>
+    <div class="timeline">
+        <div class="tl-item current">
+            <span class="tl-dot"></span>
+            <div class="tl-card">
+                <div class="tl-meta">
+                    <span class="tl-date">Aug 2025 &ndash; Present</span>
+                    <span class="tl-current-badge">Current</span>
+                </div>
+                <div class="tl-role">VP, R&amp;D / Global EmTech Lead</div>
+                <div class="tl-company">Mastercard (U.S.)</div>
+                <div class="tl-location">Arlington, VA, USA</div>
+                <ul>
+                    <li>Lead global R&amp;D initiatives in AI Emerging Technology (EmTech) domains</li>
+                    <li>Lead EmTech research for 5 strategic "Big Bets" projects &mdash; high-impact, confidential initiatives aimed at shaping Mastercard's next-generation payment infrastructure and AI-powered commerce solutions</li>
+                    <li>Organized and hosted SENTIRE'25 (15th Workshop on Sentiment Analysis and Linguistic Linked Data) co-located with IEEE ICDM 2025, Washington DC</li>
+                </ul>
+            </div>
         </div>
-        <div class="entry-org">Arlington, VA, USA</div>
-        <ul class="entry-details">
-            <li>Lead global R&amp;D initiatives in AI Emerging Technology (EmTech) domains</li>
-            <li>Lead EmTech research for 5 strategic "Big Bets" projects &mdash; high-impact, confidential initiatives aimed at shaping Mastercard's next-generation payment infrastructure and AI-powered commerce solutions</li>
-            <li>Organized and hosted SENTIRE'25 (15th Workshop on Sentiment Analysis and Linguistic Linked Data) co-located with IEEE ICDM 2025, Washington DC</li>
-        </ul>
-    </div>
 
-    <div class="entry">
-        <div class="entry-header">
-            <span class="entry-title">VP, R&amp;D / Global EmTech Lead &mdash; Mastercard Asia/Pacific</span>
-            <span class="entry-date">May 2022 &ndash; Jul 2025</span>
+        <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-card">
+                <div class="tl-meta">
+                    <span class="tl-date">May 2022 &ndash; Jul 2025</span>
+                </div>
+                <div class="tl-role">VP, R&amp;D / Global EmTech Lead</div>
+                <div class="tl-company">Mastercard Asia/Pacific</div>
+                <div class="tl-location">Singapore</div>
+                <ul>
+                    <li>Lead global R&amp;D in Emerging Technology: AI / Machine Learning / Generative AI and Web3</li>
+                    <li>Led EmTech research for <a href="https://www.mastercard.com/global/en/news-and-trends/press/2024/october/mastercard-launches-new-gen-ai-digital-assistant-capabilities-to-enhance-customer-value.html" target="_blank">Mastercard Assistant Platform (MAP)</a> &mdash; a suite of digital assistants simplifying customer onboarding</li>
+                    <li>Pioneered enterprise GenAI applications using LLMs for payments/commerce automation</li>
+                    <li>Developed multi-agent systems for invoice reconciliation (99.9% accuracy), conversational payments (HMASP), cooperative test generation (CMAS4G2), and LLM-as-a-Judge evaluation frameworks</li>
+                    <li>Developed Mastercard Tokenized Card NFT solution and DigiPay Web3 micropayment stablecoin solution</li>
+                </ul>
+            </div>
         </div>
-        <div class="entry-org">Singapore</div>
-        <ul class="entry-details">
-            <li>Lead global R&amp;D in Emerging Technology: AI / Machine Learning / Generative AI and Web3</li>
-            <li>Led EmTech research for <a href="https://www.mastercard.com/global/en/news-and-trends/press/2024/october/mastercard-launches-new-gen-ai-digital-assistant-capabilities-to-enhance-customer-value.html" target="_blank">Mastercard Assistant Platform (MAP)</a> &mdash; a suite of digital assistants simplifying customer onboarding</li>
-            <li>Pioneered enterprise GenAI applications using LLMs for payments/commerce automation</li>
-            <li>Developed multi-agent systems for invoice reconciliation (99.9% accuracy), conversational payments (HMASP), cooperative test generation (CMAS4G2), and LLM-as-a-Judge evaluation frameworks</li>
-            <li>Developed Mastercard Tokenized Card NFT solution and DigiPay Web3 micropayment stablecoin solution</li>
-        </ul>
-    </div>
 
-    <div class="entry">
-        <div class="entry-header">
-            <span class="entry-title">VP, R&amp;D / Head of Singapore R&amp;D &mdash; Mastercard Asia/Pacific</span>
-            <span class="entry-date">Aug 2011 &ndash; May 2022</span>
+        <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-card">
+                <div class="tl-meta">
+                    <span class="tl-date">Aug 2011 &ndash; May 2022</span>
+                </div>
+                <div class="tl-role">VP, R&amp;D / Head of Singapore R&amp;D</div>
+                <div class="tl-company">Mastercard Asia/Pacific</div>
+                <div class="tl-location">Singapore</div>
+                <ul>
+                    <li>Founded and led Singapore R&amp;D team in Mastercard Foundry (Mastercard Labs) &mdash; global innovation and R&amp;D division</li>
+                    <li>Drove innovation across EMV Chip, IoT, QR Payments, Connected Car, Humanoid Robots, Conversational AI, AR/VR, Blockchain, Web3, NFT, DeFi, and Metaverse</li>
+                    <li>Key commercialized projects: Crescent City Card, BharatQR, SoftBank Pepper commerce, SmartWallet, and more</li>
+                </ul>
+            </div>
         </div>
-        <div class="entry-org">Singapore</div>
-        <ul class="entry-details">
-            <li>Founded and led Singapore R&amp;D team in Mastercard Foundry (Mastercard Labs) &mdash; global innovation and R&amp;D division</li>
-            <li>Drove innovation across EMV Chip, IoT, QR Payments, Connected Car, Humanoid Robots, Conversational AI, AR/VR, Blockchain, Web3, NFT, DeFi, and Metaverse</li>
-            <li>Key commercialized projects: Crescent City Card, BharatQR, SoftBank Pepper commerce, SmartWallet, and more</li>
-        </ul>
-    </div>
 
-    <div class="entry">
-        <div class="entry-header">
-            <span class="entry-title">Senior Software Engineer / Team Lead &mdash; PayPal</span>
-            <span class="entry-date">Jul 2008 &ndash; Aug 2011</span>
+        <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-card">
+                <div class="tl-meta">
+                    <span class="tl-date">Jul 2008 &ndash; Aug 2011</span>
+                </div>
+                <div class="tl-role">Senior Software Engineer / Team Lead</div>
+                <div class="tl-company">PayPal</div>
+                <div class="tl-location">Singapore</div>
+                <ul>
+                    <li>Led software development teams for Brazil market projects; SME in limits/verification/compliance</li>
+                    <li>Delivered largest EU compliance project (EU KYB Receiving Limit) in 8 months; built China UnionPay (CUP) integration</li>
+                </ul>
+            </div>
         </div>
-        <div class="entry-org">Singapore</div>
-        <ul class="entry-details">
-            <li>Led software development teams for Brazil market projects; SME in limits/verification/compliance</li>
-            <li>Delivered largest EU compliance project (EU KYB Receiving Limit) in 8 months; built China UnionPay (CUP) integration</li>
-        </ul>
-    </div>
 
-    <div class="entry">
-        <div class="entry-header">
-            <span class="entry-title">Earlier Roles</span>
-            <span class="entry-date">1995 &ndash; 2008</span>
+        <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-card">
+                <div class="tl-meta">
+                    <span class="tl-date">1995 &ndash; 2008</span>
+                </div>
+                <div class="tl-role">Earlier Roles</div>
+                <div class="tl-company">Software Engineering &amp; R&amp;D Leadership</div>
+                <ul>
+                    <li>Software R&amp;D Manager &mdash; Streaming21, Singapore (2007&ndash;2008)</li>
+                    <li>Leader, Software Development &mdash; Schmidt Electronics (S.E.A.), Singapore (2006&ndash;2007)</li>
+                    <li>Software Engineer &mdash; Unaxis Singapore (2005)</li>
+                    <li>Software Engineer &mdash; ASM Technology Singapore (2002&ndash;2005)</li>
+                    <li>Software Engineer &mdash; Beijing Zhida Technology, China (1995&ndash;1998)</li>
+                </ul>
+            </div>
         </div>
-        <ul class="entry-details">
-            <li>Software R&amp;D Manager &mdash; Streaming21, Singapore (2007&ndash;2008)</li>
-            <li>Leader, Software Development &mdash; Schmidt Electronics (S.E.A.), Singapore (2006&ndash;2007)</li>
-            <li>Software Engineer &mdash; Unaxis Singapore (2005)</li>
-            <li>Software Engineer &mdash; ASM Technology Singapore (2002&ndash;2005)</li>
-            <li>Software Engineer &mdash; Beijing Zhida Technology, China (1995&ndash;1998)</li>
-        </ul>
     </div>
 </section>
 
