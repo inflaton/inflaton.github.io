@@ -1279,5 +1279,28 @@
     </p>
 </footer>
 
+<script>
+(function() {
+    var PASSWORD = "inflaton is creator of the universe";
+    var PROMPT_MSG = "Enter password to download CV:";
+    var ERROR_MSG = "Incorrect password.";
+    document.addEventListener('click', function(e) {
+        var a = e.target.closest('a[download][href$=".pdf"]');
+        if (!a) return;
+        if (a.dataset.cvUnlocked === '1') return;
+        e.preventDefault();
+        var input = window.prompt(PROMPT_MSG);
+        if (input === null) return;
+        if (input === PASSWORD) {
+            a.dataset.cvUnlocked = '1';
+            a.click();
+            setTimeout(function() { delete a.dataset.cvUnlocked; }, 0);
+        } else {
+            window.alert(ERROR_MSG);
+        }
+    });
+})();
+</script>
+
 </body>
 </html>
