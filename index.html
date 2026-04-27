@@ -7,7 +7,24 @@
     <title>Donghao Huang - Personal Homepage</title>
     <meta name="description" content="Donghao Huang - VP R&D at Mastercard, Doctor of Engineering candidate in Generative AI, researcher in LLMs, RAG, Edge AI, and multi-agent systems.">
     <meta name="keywords" content="Donghao Huang, AI, GenAI, LLM, Mastercard, NLP, Sentiment Analysis, Edge AI, Multi-Agent Systems">
-    <link rel="icon" href="./shared/images/logo-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <link rel="alternate icon" href="./shared/images/logo-32x32.png" sizes="32x32">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Donghao Huang — VP, R&amp;D at Mastercard">
+    <meta property="og:description" content="VP, R&amp;D / Global EmTech Lead at Mastercard. 26+ years driving innovation across AI/ML, GenAI, Web3, and payments. Doctor of Engineering candidate in Generative AI.">
+    <meta property="og:image" content="https://inflaton.github.io/donghaoheadshot.png">
+    <meta property="og:url" content="https://inflaton.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Donghao Huang — VP, R&amp;D at Mastercard">
+    <meta name="twitter:description" content="VP, R&amp;D / Global EmTech Lead at Mastercard. 26+ years driving innovation across AI/ML, GenAI, Web3, and payments.">
+    <meta name="twitter:image" content="https://inflaton.github.io/donghaoheadshot.png">
+
+    <script>document.documentElement.classList.add('js');</script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -640,6 +657,171 @@
             .tl-dot { left: 2px; width: 18px; height: 18px; }
             .tl-card { padding: 1rem 1.1rem; }
         }
+
+        /* Theme toggle */
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-light);
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-right: 0.5rem;
+            padding: 0;
+            transition: color 0.2s, background 0.2s, border-color 0.2s;
+        }
+        .theme-toggle:hover { color: var(--accent); background: var(--highlight); border-color: var(--accent-light); }
+        .theme-toggle svg { width: 16px; height: 16px; }
+        .theme-toggle .icon-dark { display: none; }
+        body.dark .theme-toggle .icon-light { display: none; }
+        body.dark .theme-toggle .icon-dark { display: inline; }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(37,99,235,0.45);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.25s, transform 0.25s, visibility 0.25s, box-shadow 0.2s, background 0.2s;
+            z-index: 99;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            box-shadow: 0 10px 28px rgba(37,99,235,0.55);
+            transform: translateY(-2px);
+            filter: brightness(1.08);
+        }
+        .back-to-top svg { width: 22px; height: 22px; }
+        @media (max-width: 640px) {
+            .back-to-top { bottom: 1rem; right: 1rem; width: 40px; height: 40px; }
+            .back-to-top svg { width: 20px; height: 20px; }
+        }
+
+        /* Scroll fade-in */
+        html.js section {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+            will-change: opacity, transform;
+        }
+        html.js section.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html.js section { opacity: 1; transform: none; transition: none; }
+        }
+
+        /* Collapsibles */
+        .pub-list .is-extra,
+        .patents-table .is-extra { display: none; }
+        .pub-list.is-revealed .is-extra { display: list-item; animation: fadeInItem 0.35s ease-out both; }
+        .patents-table.is-revealed .is-extra { display: table-row; animation: fadeInItem 0.35s ease-out both; }
+        @keyframes fadeInItem {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .show-all-wrap {
+            display: flex;
+            justify-content: center;
+            margin: 0.5rem 0 0.5rem;
+        }
+        .show-all-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.5rem 1.1rem;
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s, transform 0.15s;
+            font-family: inherit;
+        }
+        .show-all-btn:hover {
+            background: var(--accent);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+        .show-all-btn .chev {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.25s;
+        }
+        .show-all-btn.is-open .chev { transform: rotate(180deg); }
+
+        /* Dark mode */
+        body.dark {
+            --primary: #f1f5f9;
+            --primary-light: #e2e8f0;
+            --accent: #60a5fa;
+            --accent-light: #93c5fd;
+            --accent-glow: #bfdbfe;
+            --bg: #0b1220;
+            --card-bg: #111827;
+            --text: #e2e8f0;
+            --text-light: #94a3b8;
+            --border: #1f2937;
+            --highlight: rgba(96,165,250,0.12);
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.45);
+            --shadow-lg: 0 12px 32px rgba(0,0,0,0.55);
+        }
+        body.dark .nav-bar {
+            background: rgba(11,18,32,0.85);
+            border-bottom-color: var(--border);
+        }
+        body.dark .nav-bar a { color: var(--text); }
+        body.dark .nav-bar a:hover { color: var(--accent); }
+        body.dark footer {
+            background: #050a14;
+            color: rgba(226,232,240,0.7);
+        }
+        body.dark footer a { color: var(--accent-light); }
+        body.dark .tl-current-badge { background: #14532d; color: #bbf7d0; }
+        body.dark .pub-list .top-venue {
+            background: rgba(254, 252, 191, 0.12);
+            color: var(--text);
+        }
+        body.dark .nav-cv { box-shadow: 0 4px 12px rgba(96,165,250,0.3); }
+        body.dark .btn-primary { box-shadow: 0 6px 20px rgba(96,165,250,0.35); }
+        body.dark .back-to-top { box-shadow: 0 6px 20px rgba(96,165,250,0.4); }
+        /* Patent table striped rows (inline-styled) */
+        body.dark tr[style*="background:#fafafa"],
+        body.dark tr[style*="background: #fafafa"] {
+            background: #0f1729 !important;
+        }
+        body.dark tr[style*="border-bottom:1px solid var(--border)"] td,
+        body.dark tr[style*="border-bottom:2px solid var(--accent)"] th {
+            color: var(--text);
+        }
+        body.dark .hobby-card { background: var(--card-bg); }
+        body.dark .skill-value { color: var(--text); }
     </style>
 </head>
 <body>
@@ -727,6 +909,10 @@
         Download CV
     </a>
     <div class="lang-switcher">
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/></svg>
+        </button>
         <a href="index.html" class="lang-current">EN</a>
         <span class="lang-sep">|</span>
         <a href="index.zh-hans.html">简体</a>
@@ -924,7 +1110,7 @@
 
     <h3 style="font-size:1.05rem; color:var(--primary); margin-bottom:0.6rem;">Granted Patents</h3>
     <div style="overflow-x:auto; margin-bottom:1.5rem;">
-    <table style="width:100%; border-collapse:collapse; font-size:0.88rem; line-height:1.5;">
+    <table class="patents-table" style="width:100%; border-collapse:collapse; font-size:0.88rem; line-height:1.5;">
         <thead>
             <tr style="border-bottom:2px solid var(--accent); text-align:left;">
                 <th style="padding:0.5rem 0.6rem; color:var(--primary);">Patent No.</th>
@@ -989,7 +1175,7 @@
 
     <h3 style="font-size:1.05rem; color:var(--primary); margin-bottom:0.6rem;">Selected Pending Applications</h3>
     <div style="overflow-x:auto;">
-    <table style="width:100%; border-collapse:collapse; font-size:0.88rem; line-height:1.5;">
+    <table class="patents-table" style="width:100%; border-collapse:collapse; font-size:0.88rem; line-height:1.5;">
         <thead>
             <tr style="border-bottom:2px solid var(--accent); text-align:left;">
                 <th style="padding:0.5rem 0.6rem; color:var(--primary);">Patent No.</th>
@@ -1279,6 +1465,11 @@
     </p>
 </footer>
 
+<!-- Back to top -->
+<button class="back-to-top" type="button" aria-label="Back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
 <script>
 (function() {
     var PASSWORD_HASH = "349bae7176b684b6a47c3b11c443145537bd00c46791e8e5e7ed4c265af20d99";
@@ -1309,6 +1500,138 @@
             window.alert(ERROR_MSG);
         }
     });
+})();
+</script>
+
+<script>
+(function() {
+    var SHOW_ALL_TEXT = 'Show all';
+    var SHOW_LESS_TEXT = 'Show less';
+    var PUB_INITIAL = 5;
+    var PATENTS_INITIAL = 5;
+
+    function makeChev() {
+        return '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>';
+    }
+
+    function setupCollapsibleList(list, initial) {
+        if (!list) return;
+        var items = list.querySelectorAll(':scope > li');
+        if (items.length <= initial) return;
+        for (var i = initial; i < items.length; i++) {
+            items[i].classList.add('is-extra');
+        }
+        var hidden = items.length - initial;
+        var wrap = document.createElement('div');
+        wrap.className = 'show-all-wrap';
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'show-all-btn';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.innerHTML = SHOW_ALL_TEXT + ' (' + items.length + ')' + makeChev();
+        btn.dataset.showText = SHOW_ALL_TEXT + ' (' + items.length + ')';
+        btn.dataset.hideText = SHOW_LESS_TEXT;
+        btn.addEventListener('click', function() {
+            var revealed = list.classList.toggle('is-revealed');
+            btn.classList.toggle('is-open', revealed);
+            btn.setAttribute('aria-expanded', revealed ? 'true' : 'false');
+            btn.innerHTML = (revealed ? btn.dataset.hideText : btn.dataset.showText) + makeChev();
+            if (!revealed) {
+                var top = list.getBoundingClientRect().top + window.pageYOffset - 80;
+                if (window.pageYOffset > top) window.scrollTo({ top: top, behavior: 'smooth' });
+            }
+        });
+        wrap.appendChild(btn);
+        list.parentNode.insertBefore(wrap, list.nextSibling);
+    }
+
+    function setupCollapsibleTable(table, initial) {
+        if (!table) return;
+        var rows = table.querySelectorAll('tbody > tr');
+        if (rows.length <= initial) return;
+        for (var i = initial; i < rows.length; i++) {
+            rows[i].classList.add('is-extra');
+        }
+        var wrap = document.createElement('div');
+        wrap.className = 'show-all-wrap';
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'show-all-btn';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.dataset.showText = SHOW_ALL_TEXT + ' (' + rows.length + ')';
+        btn.dataset.hideText = SHOW_LESS_TEXT;
+        btn.innerHTML = btn.dataset.showText + makeChev();
+        btn.addEventListener('click', function() {
+            var revealed = table.classList.toggle('is-revealed');
+            btn.classList.toggle('is-open', revealed);
+            btn.setAttribute('aria-expanded', revealed ? 'true' : 'false');
+            btn.innerHTML = (revealed ? btn.dataset.hideText : btn.dataset.showText) + makeChev();
+        });
+        wrap.appendChild(btn);
+        var holder = table.parentNode;
+        holder.parentNode.insertBefore(wrap, holder.nextSibling);
+    }
+
+    function initBackToTop() {
+        var btn = document.querySelector('.back-to-top');
+        if (!btn) return;
+        var threshold = 400;
+        function onScroll() {
+            if (window.pageYOffset > threshold) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+        btn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    function initThemeToggle() {
+        var btn = document.querySelector('.theme-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+            var on = document.body.classList.toggle('dark');
+            btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+    }
+
+    function initScrollAnimations() {
+        if (!('IntersectionObserver' in window)) {
+            document.querySelectorAll('section').forEach(function(s) { s.classList.add('in-view'); });
+            return;
+        }
+        var io = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('section').forEach(function(s) { io.observe(s); });
+    }
+
+    function init() {
+        document.querySelectorAll('.pub-list').forEach(function(list) {
+            setupCollapsibleList(list, PUB_INITIAL);
+        });
+        document.querySelectorAll('.patents-table').forEach(function(table) {
+            setupCollapsibleTable(table, PATENTS_INITIAL);
+        });
+        initBackToTop();
+        initThemeToggle();
+        initScrollAnimations();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 })();
 </script>
 
