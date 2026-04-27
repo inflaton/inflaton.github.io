@@ -680,7 +680,7 @@
         </div>
 
         <div class="hero-cta">
-            <a class="btn btn-primary" href="./Donghao_Huang_CV.pdf" download>
+            <a class="btn btn-primary" href="./cv-e3f2392f2d9b63f6.pdf" download="Donghao_Huang_CV.pdf">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 Download CV
             </a>
@@ -722,7 +722,7 @@
         <a href="#volunteering">Volunteering</a>
         <a href="#hobbies">Hobby Websites</a>
     </nav>
-    <a class="nav-cv" href="./Donghao_Huang_CV.pdf" download>
+    <a class="nav-cv" href="./cv-e3f2392f2d9b63f6.pdf" download="Donghao_Huang_CV.pdf">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download CV
     </a>
@@ -1281,17 +1281,27 @@
 
 <script>
 (function() {
-    var PASSWORD = "inflaton is creator of the universe";
+    var PASSWORD_HASH = "349bae7176b684b6a47c3b11c443145537bd00c46791e8e5e7ed4c265af20d99";
     var PROMPT_MSG = "Enter password to download CV:";
     var ERROR_MSG = "Incorrect password.";
-    document.addEventListener('click', function(e) {
+
+    async function sha256Hex(s) {
+        var buf = new TextEncoder().encode(s);
+        var hash = await crypto.subtle.digest("SHA-256", buf);
+        return Array.from(new Uint8Array(hash))
+            .map(function(b) { return b.toString(16).padStart(2, "0"); })
+            .join("");
+    }
+
+    document.addEventListener('click', async function(e) {
         var a = e.target.closest('a[download][href$=".pdf"]');
         if (!a) return;
         if (a.dataset.cvUnlocked === '1') return;
         e.preventDefault();
         var input = window.prompt(PROMPT_MSG);
         if (input === null) return;
-        if (input === PASSWORD) {
+        var hash = await sha256Hex(input);
+        if (hash === PASSWORD_HASH) {
             a.dataset.cvUnlocked = '1';
             a.click();
             setTimeout(function() { delete a.dataset.cvUnlocked; }, 0);
