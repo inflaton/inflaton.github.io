@@ -565,6 +565,33 @@
         .pub-list a { color: var(--accent); text-decoration: none; }
         .pub-list a:hover { text-decoration: underline; }
 
+        /* Speaking & Awards */
+        .speaking-list { list-style: none; padding: 0; }
+        .speaking-list li {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent);
+            font-size: 0.93rem;
+            line-height: 1.65;
+        }
+        .speaking-list .talk-title { font-weight: 600; color: var(--primary); }
+        .speaking-list .talk-meta { color: var(--text-light); font-size: 0.88rem; }
+        .speaking-list a { color: var(--accent); text-decoration: none; }
+        .speaking-list a:hover { text-decoration: underline; }
+        .awards-list { list-style: none; padding: 0; }
+        .awards-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.93rem;
+            line-height: 1.65;
+        }
+        .awards-list li::before {
+            content: "\1F3C6";
+            position: absolute;
+            left: 0;
+        }
+
         /* Hobby */
         .hobby-grid {
             display: grid;
@@ -901,6 +928,8 @@
         <a href="#skills">Skills</a>
         <a href="#patents">Patents</a>
         <a href="#publications">Publications</a>
+        <a href="#speaking">Speaking</a>
+        <a href="#awards">Awards</a>
         <a href="#volunteering">Volunteering</a>
         <a href="#hobbies">Hobby Websites</a>
     </nav>
@@ -1038,7 +1067,8 @@
                 <ul>
                     <li>Founded and led Singapore R&amp;D team in Mastercard Foundry (Mastercard Labs) &mdash; global innovation and R&amp;D division</li>
                     <li>Drove innovation across EMV Chip, IoT, QR Payments, Connected Car, Humanoid Robots, Conversational AI, AR/VR, Blockchain, Web3, NFT, DeFi, and Metaverse</li>
-                    <li>Key commercialized projects: Crescent City Card, BharatQR, SoftBank Pepper commerce, SmartWallet, and more</li>
+                    <li>Won Smart Sentosa Challenge 2016 with Mastercard Asia-Pacific&rsquo;s Smart City Engine</li>
+                    <li>Key commercialized projects: Crescent City Card, BharatQR, <a href="https://youtu.be/W2XIyqeP5w4" target="_blank">Mastercard Aid Network</a>, SoftBank Pepper commerce, SmartWallet, and more</li>
                 </ul>
             </div>
         </div>
@@ -1393,6 +1423,103 @@
             <span class="venue">Physical Review D, 62(8), 087302.</span>
         </li>
     </ol>
+</section>
+
+<!-- Speaking & Panels -->
+<section id="speaking">
+    <h2 class="section-title">Speaking &amp; Panels</h2>
+    <p style="font-size:0.9rem; color:var(--text-light); margin-bottom:1.2rem;">
+        Invited keynotes, conference talks, and panel appearances at international technology events.
+    </p>
+
+    <h3 style="font-size:1.05rem; color:var(--primary); margin-bottom:0.8rem;">Invited Talks &amp; Panels</h3>
+    <ul class="speaking-list">
+        <li>
+            <div class="talk-title">Technical Sharing Session on AI Agents</div>
+            <div class="talk-meta">IMDA Singapore &bull; 23 April 2026 &bull; Singapore</div>
+            <div>Invited speaker alongside Prof Bo An (AAAI Fellow, President's Chair Professor, NTU).</div>
+            <a href="https://www.imda.gov.sg/activities/activities-catalogue/technical-sharing-session-with-ai-agents" target="_blank">Event page &rarr;</a>
+        </li>
+        <li>
+            <div class="talk-title">InnoAI 2026 Global Summit on Innovating the Future of Artificial Intelligence</div>
+            <div class="talk-meta">InnoAI &bull; 2026</div>
+            <div>Invited speaker, listed alongside speakers from JPMorgan Chase, Google, NVIDIA, and eBay.</div>
+            <a href="https://innoaisummit.com/experts" target="_blank">Speaker profile &rarr;</a>
+        </li>
+        <li>
+            <div class="talk-title">Workshop Chair &mdash; SENTIRE&rsquo;25 (15th Workshop on Sentiment Analysis and Linguistic Linked Data)</div>
+            <div class="talk-meta">Co-located with IEEE ICDM 2025 &bull; 13 November 2025 &bull; Washington, DC</div>
+            <div>Organized and hosted the workshop as Workshop Chair.</div>
+        </li>
+        <li>
+            <div class="talk-title">&ldquo;Optimizing and Benchmarking Open-Source LLMs for Enterprise Applications&rdquo;</div>
+            <div class="talk-meta">SuperAI Singapore 2025 &bull; 19 June 2025 &bull; Marina Bay Sands, Singapore</div>
+            <div>Invited speaker at Singapore&rsquo;s premier AI conference.</div>
+            <a href="https://www.superai.com/superai-sessions/optimizing-and-benchmarking-open-source-llms-for-enterprise-applications" target="_blank">Session details &rarr;</a>
+        </li>
+        <li>
+            <div class="talk-title">Panel: IEEE Conference on Artificial Intelligence (IEEE CAI 2024)</div>
+            <div class="talk-meta">IEEE CAI 2024 &bull; June 2024 &bull; Marina Bay Sands, Singapore</div>
+            <div>Invited panelist; panel moderated by Simon See (Director, NVIDIA AI Technology Centre), alongside Prof Masashi Sugiyama (Director, RIKEN Center for Advanced Intelligence Project). 800+ global attendees.</div>
+        </li>
+        <li>
+            <div class="talk-title">&ldquo;Optimizing and Benchmarking Open-Source LLMs for Conversational AI&rdquo; + Panel: &ldquo;Benefits of Scalable Language Models&rdquo;</div>
+            <div class="talk-meta">CALM SUMMIT &rsquo;24 (Rasa) &bull; October 2024</div>
+            <div>Solo session speaker and panelist at Rasa&rsquo;s flagship conversational AI summit.</div>
+            <a href="https://calmsummit24.com/agenda/" target="_blank">Agenda &rarr;</a>
+        </li>
+        <li>
+            <div class="talk-title">&ldquo;Mastercard is getting ready for Web3 and the metaverse&rdquo;</div>
+            <div class="talk-meta">Upbit Developer Conference (UDC) 2022 &bull; September 2022 &bull; Busan, South Korea</div>
+            <div>Represented Mastercard alongside speakers including Justin Sun (Tron), Sebastien Borget (The Sandbox), Bryan Pellegrino (LayerZero Labs), and Leemon Baird (Hedera/Swirlds Labs).</div>
+            <a href="https://udc-static.dunamu.com/reports/UDC_2022_Report_EN.pdf" target="_blank">UDC 2022 Report &rarr;</a>
+        </li>
+    </ul>
+
+    <h3 style="font-size:1.05rem; color:var(--primary); margin: 1.5rem 0 0.8rem;">Paper Presentations</h3>
+    <ul class="speaking-list">
+        <li>
+            <div class="talk-title">AAMAS 2026</div>
+            <div class="talk-meta">May 2026 &bull; Paphos, Cyprus</div>
+        </li>
+        <li>
+            <div class="talk-title">ICDSAAI 2026</div>
+            <div class="talk-meta">2025 &bull; Chengdu, China</div>
+        </li>
+        <li>
+            <div class="talk-title">PAKDD 2024, 2025, 2026</div>
+            <div class="talk-meta">Chiang Mai / Sydney / Macau</div>
+        </li>
+        <li>
+            <div class="talk-title">NAACL 2025</div>
+            <div class="talk-meta">2025 &bull; Albuquerque, NM, USA</div>
+        </li>
+        <li>
+            <div class="talk-title">IJCNN 2025</div>
+            <div class="talk-meta">2025 &bull; Rome, Italy</div>
+        </li>
+        <li>
+            <div class="talk-title">IEEE ICDM 2025</div>
+            <div class="talk-meta">November 2025 &bull; Washington, DC, USA</div>
+        </li>
+        <li>
+            <div class="talk-title">IEEE SSCI 2025</div>
+            <div class="talk-meta">2025 &bull; Trondheim, Norway</div>
+        </li>
+        <li>
+            <div class="talk-title">IEEE CAI 2024</div>
+            <div class="talk-meta">June 2024 &bull; Marina Bay Sands, Singapore</div>
+        </li>
+    </ul>
+</section>
+
+<!-- Awards & Recognitions -->
+<section id="awards">
+    <h2 class="section-title">Awards &amp; Recognitions</h2>
+    <ul class="awards-list">
+        <li><strong>IMDA Singapore Digital Scholarship (Postgraduate), 2025</strong> &mdash; Competitive Singapore government scholarship awarded to senior technology professionals pursuing advanced research.</li>
+        <li><strong>Smart Sentosa Challenge Winner, 2016</strong> &mdash; Mastercard Asia-Pacific&rsquo;s Smart City Engine won the Smart Sentosa challenge, a Singapore government smart-city innovation competition.</li>
+    </ul>
 </section>
 
 <!-- Volunteering -->

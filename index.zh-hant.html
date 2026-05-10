@@ -506,6 +506,33 @@
         .pub-list a { color: var(--accent); text-decoration: none; }
         .pub-list a:hover { text-decoration: underline; }
 
+        /* Speaking & Awards */
+        .speaking-list { list-style: none; padding: 0; }
+        .speaking-list li {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent);
+            font-size: 0.93rem;
+            line-height: 1.65;
+        }
+        .speaking-list .talk-title { font-weight: 600; color: var(--primary); }
+        .speaking-list .talk-meta { color: var(--text-light); font-size: 0.88rem; }
+        .speaking-list a { color: var(--accent); text-decoration: none; }
+        .speaking-list a:hover { text-decoration: underline; }
+        .awards-list { list-style: none; padding: 0; }
+        .awards-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.93rem;
+            line-height: 1.65;
+        }
+        .awards-list li::before {
+            content: "\1F3C6";
+            position: absolute;
+            left: 0;
+        }
+
         /* Hobby */
         .hobby-grid {
             display: grid;
@@ -839,6 +866,8 @@
         <a href="#skills">技能</a>
         <a href="#patents">專利</a>
         <a href="#publications">學術發表</a>
+        <a href="#speaking">演講</a>
+        <a href="#awards">榮譽</a>
         <a href="#volunteering">公益活動</a>
         <a href="#hobbies">個人網站</a>
     </nav>
@@ -976,7 +1005,8 @@
                 <ul>
                     <li>創立並領導萬事達卡Foundry（萬事達卡實驗室）新加坡研發團隊——全球創新研發部門</li>
                     <li>推動EMV晶片、物聯網、QR碼支付、網聯汽車、人形機器人、對話AI、AR/VR、區塊鏈、Web3、NFT、DeFi和元宇宙等領域的創新</li>
-                    <li>主要商業化專案：新月城市卡、BharatQR、軟銀Pepper商務、SmartWallet等</li>
+                    <li>2016年萬事達卡亞太區智慧城市引擎贏得 Smart Sentosa 挑戰賽</li>
+                    <li>主要商業化專案：新月城市卡、BharatQR、<a href="https://youtu.be/W2XIyqeP5w4" target="_blank">萬事達卡援助網絡</a>、軟銀Pepper商務、SmartWallet等</li>
                 </ul>
             </div>
         </div>
@@ -1334,6 +1364,103 @@
 </section>
 
 <!-- Volunteering -->
+<!-- Speaking & Panels -->
+<section id="speaking">
+    <h2 class="section-title">演講與論壇</h2>
+    <p style="font-size:0.9rem; color:var(--text-light); margin-bottom:1.2rem;">
+        受邀於國際技術會議發表主題演講及參與專家論壇。
+    </p>
+
+    <h3 style="font-size:1.05rem; color:var(--primary); margin-bottom:0.8rem;">受邀演講與論壇</h3>
+    <ul class="speaking-list">
+        <li>
+            <div class="talk-title">AI Agents 技術分享會</div>
+            <div class="talk-meta">新加坡資訊通信媒體發展局 (IMDA) &bull; 2026年4月23日 &bull; 新加坡</div>
+            <div>受邀演講嘉賓，與南洋理工大學校長講席教授、AAAI Fellow 安波教授同台。</div>
+            <a href="https://www.imda.gov.sg/activities/activities-catalogue/technical-sharing-session-with-ai-agents" target="_blank">活動頁面 &rarr;</a>
+        </li>
+        <li>
+            <div class="talk-title">InnoAI 2026 全球人工智慧創新未來峰會</div>
+            <div class="talk-meta">InnoAI &bull; 2026</div>
+            <div>受邀演講嘉賓，與摩根大通、谷歌、輝達、eBay等公司的嘉賓同列。</div>
+            <a href="https://innoaisummit.com/experts" target="_blank">嘉賓介紹 &rarr;</a>
+        </li>
+        <li>
+            <div class="talk-title">研討會主席 &mdash; SENTIRE&rsquo;25（第15屆情感分析與語言鏈結資料研討會）</div>
+            <div class="talk-meta">與 IEEE ICDM 2025 聯合舉辦 &bull; 2025年11月13日 &bull; 美國華盛頓特區</div>
+            <div>作為研討會主席組織並主持該活動。</div>
+        </li>
+        <li>
+            <div class="talk-title">&ldquo;企業級開源大語言模型優化與基準測試&rdquo;</div>
+            <div class="talk-meta">SuperAI Singapore 2025 &bull; 2025年6月19日 &bull; 新加坡濱海灣金沙</div>
+            <div>受邀在新加坡頂級 AI 峰會發表演講。</div>
+            <a href="https://www.superai.com/superai-sessions/optimizing-and-benchmarking-open-source-llms-for-enterprise-applications" target="_blank">會議詳情 &rarr;</a>
+        </li>
+        <li>
+            <div class="talk-title">論壇嘉賓：IEEE 人工智慧大會 (IEEE CAI 2024)</div>
+            <div class="talk-meta">IEEE CAI 2024 &bull; 2024年6月 &bull; 新加坡濱海灣金沙</div>
+            <div>受邀論壇嘉賓；論壇由 Simon See（輝達 AI 技術中心總監）主持，同台嘉賓包括杉山將教授（日本理化學研究所先進智能研究中心主任）。800+全球參會者。</div>
+        </li>
+        <li>
+            <div class="talk-title">&ldquo;面向對話式AI的開源大語言模型優化與基準測試&rdquo; + 論壇：&ldquo;可擴展語言模型的優勢&rdquo;</div>
+            <div class="talk-meta">CALM SUMMIT &rsquo;24 (Rasa) &bull; 2024年10月</div>
+            <div>在 Rasa 旗艦對話式 AI 峰會上發表獨立演講並參與論壇討論。</div>
+            <a href="https://calmsummit24.com/agenda/" target="_blank">議程 &rarr;</a>
+        </li>
+        <li>
+            <div class="talk-title">&ldquo;萬事達卡為 Web3 和元宇宙做好準備&rdquo;</div>
+            <div class="talk-meta">Upbit 開發者大會 (UDC) 2022 &bull; 2022年9月 &bull; 韓國釜山</div>
+            <div>代表萬事達卡出席，同場嘉賓包括孫宇晨（波場創始人）、Sebastien Borget（The Sandbox COO &amp; 聯合創始人）、Bryan Pellegrino（LayerZero Labs CEO）及 Leemon Baird（Hedera/Swirlds Labs 聯合CEO）。</div>
+            <a href="https://udc-static.dunamu.com/reports/UDC_2022_Report_EN.pdf" target="_blank">UDC 2022 報告 &rarr;</a>
+        </li>
+    </ul>
+
+    <h3 style="font-size:1.05rem; color:var(--primary); margin: 1.5rem 0 0.8rem;">論文發表演講</h3>
+    <ul class="speaking-list">
+        <li>
+            <div class="talk-title">AAMAS 2026</div>
+            <div class="talk-meta">2026年5月 &bull; 賽普勒斯帕福斯</div>
+        </li>
+        <li>
+            <div class="talk-title">ICDSAAI 2026</div>
+            <div class="talk-meta">2025年 &bull; 中國成都</div>
+        </li>
+        <li>
+            <div class="talk-title">PAKDD 2024、2025、2026</div>
+            <div class="talk-meta">清邁 / 雪梨 / 澳門</div>
+        </li>
+        <li>
+            <div class="talk-title">NAACL 2025</div>
+            <div class="talk-meta">2025年 &bull; 美國新墨西哥州阿爾伯克基</div>
+        </li>
+        <li>
+            <div class="talk-title">IJCNN 2025</div>
+            <div class="talk-meta">2025年 &bull; 義大利羅馬</div>
+        </li>
+        <li>
+            <div class="talk-title">IEEE ICDM 2025</div>
+            <div class="talk-meta">2025年11月 &bull; 美國華盛頓特區</div>
+        </li>
+        <li>
+            <div class="talk-title">IEEE SSCI 2025</div>
+            <div class="talk-meta">2025年 &bull; 挪威特隆赫姆</div>
+        </li>
+        <li>
+            <div class="talk-title">IEEE CAI 2024</div>
+            <div class="talk-meta">2024年6月 &bull; 新加坡濱海灣金沙</div>
+        </li>
+    </ul>
+</section>
+
+<!-- Awards & Recognitions -->
+<section id="awards">
+    <h2 class="section-title">榮譽與獎項</h2>
+    <ul class="awards-list">
+        <li><strong>IMDA 新加坡數位獎學金（研究生），2025</strong> &mdash; 新加坡政府頒發的競爭性獎學金，授予從事高級研究的資深技術專業人員。</li>
+        <li><strong>Smart Sentosa 挑戰賽冠軍，2016</strong> &mdash; 萬事達卡亞太區智慧城市引擎贏得 Smart Sentosa 挑戰賽，該賽事為新加坡政府智慧城市創新競賽。</li>
+    </ul>
+</section>
+
 <section id="volunteering">
     <h2 class="section-title">志願服務經歷</h2>
 
